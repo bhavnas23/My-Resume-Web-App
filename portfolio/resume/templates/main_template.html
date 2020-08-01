@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>I'm Bhavna Soni</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/line-awesome/css/line-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+ <main id="main">
+    <!-- Start Header Section -->
+    <section class="section site-portfolio" id="resume">
+      <div class="container">
+        <div class="row mb-5 align-items-center">
+          <div class="col-md-6 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+            <h2>I'm Bhavna Soni</h2>
+          </div>
+          <div class="col-md-6 col-lg-6 text-left text-lg-right" data-aos="fade-up" data-aos-delay="100">
+            <div id="filters" class="filters">
+              <a href="#about" class="active">About</a>
+              <a href="#skills" >Skills</a>
+              <a href="#experience" >Experience</a>
+              <a href="#education" >Education</a>
+              <a href="#projects" >Projects</a>
+              <a href="#achievements" >Achievements</a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- End Header Section -->
+
+     <!-- Start About Section -->
+     <section id="about" class="section pb-5">
+         <div class="container">
+             <div class="row">
+                 <div class="col-12 col-sm-6 col-md-6 col-lg-6   ml-auto" data-aos="fade-up">
+                     <p><img src="{% static 'media/profile.png' %}" alt="Profile Pic" class="img-fluid" height="50"></p>
+                 </div>
+                 <div class="col-12 col-md-6 ml-auto order-2" data-aos="fade-up">
+                     <p>I have 1 year of demonstrated experience in designing and developing software solutions.</p>
+                     <p>I am well versed with computer fundamentals (C++, OOPs, data structures, algorithms). I have great analytical skills having hands-on in
+                        statistics, machine learning, natural language processing and data processing.
+                     </p>
+                     <p>I have been awarded OGS Star Award for my excellent performance in time series analysis and generating valudable insights on trends impacting business.</p>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- End  About Section -->
+
+     <!-- Start Skills Section -->
+     <section id="skills" class="section pb-5">
+         <div class="container">
+             <div class="row mb-4 align-items-center">
+                 <div class="col-md-6" data-aos="fade-up">
+                     <h2>My Skills</h2>
+                 </div>
+             </div>
+         </div>
+        <div class="site-section pb-0">
+            <div class="container">
+                <div class="mb-5" data-aos="fade-up">
+                    <ul class="list-unstyled">
+                          {% for skll in skills %}
+                          <li class="mb-3">
+                            <div class="d-flex mb-1">
+                              <strong>{{skll.skill}}</strong>
+                              <span class="ml-auto">{{skll.rating}}</span>
+                            </div>
+                            <div class="progress custom-progress">
+                              <div class="progress-bar" role="progressbar" style="width: {{skll.calPer}}%" aria-valuenow="{{skll.calPer}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </li>
+                          {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+     </section>
+     <!-- End Skills Section -->
+
+     <!-- Start Experience Section -->
+     <section id="experience" class="section pb-5">
+      <div class="container">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2>My Experience</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section pb-0">
+        <div class="container">
+            {% for exp in experience %}
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="">
+                  <h3 class="h3 mb-2">{{exp.title}}</h3>
+                  <h5 class="h4 mb-2">{{exp.company}}</h5>
+                  <h5 class="h4 mb-2">{{exp.duration}}</h5>
+                  <p>{{exp.technology}}</p>
+                  <p>
+                      {{exp.description}}
+                  </p>
+                </div>
+              {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+   <!-- End Experience Section -->
+
+   <!-- Start Education Section -->
+    <section id="education" class="section pb-5">
+      <div class="container">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2>My Education</h2>
+          </div>
+
+        </div>
+      </div>
+      <div class="site-section pb-0">
+        <div class="container">
+            {% for edu in education %}
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="">
+<!--                  <span class="la la-cube la-3x mb-4"></span>-->
+                  <h3 class="h3 mb-2">{{edu.degree}}</h3>
+                  <h5 class="h4 mb-2">{{edu.school}}</h5>
+                  <h5 class="h4 mb-2">{{edu.year}}</h5>
+                  <p>
+                      {{edu.result}}
+                  </p>
+                </div>
+              {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <!-- End Education Section -->
+
+    <!-- Start Project Section -->
+    <section id="projects" class="section pb-5">
+      <div class="container">
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6" data-aos="fade-up">
+            <h2>My Projects</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section pb-0">
+        <div class="container">
+         <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
+          {% for project in projects %}
+
+           <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="{{project.link}}" class="item-wrap fancybox">
+              <div class="work-info">
+                <h3>{{project.title}}</h3>
+                <span>{{project.technology}}</span>
+              </div>
+              <img class="card-img-top img-fluid" src="{{project.imgPath }}">
+            </a>
+          </div>
+          {% endfor %}
+         </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Start Achievement Section -->
+    <section id="achievements" class="section pb-5">
+      <div class="container">
+
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6" data-aos="fade-up">
+
+            <h2>My Achievements</h2>
+
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="site-section pb-0">
+        <div class="container">
+
+          <div class="row">
+              <ul>
+            {% for achievement in achievements %}
+                  <li>
+                <div class="mb-5" data-aos="fade-up" data-aos-delay="">
+
+                  <h4 class="h4 mb-2">{{achievement.description}}</h4>
+
+                </div>
+                      </li>
+              {% endfor %}
+                  </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Achievement Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="mb-1">Hire Me : Drop me an email</p>
+          <div class="credits">
+            <a href = "mailto:bhavna.soni108@gmail.com"><span class="icofont-email">  bhavna.soni108@gmail.com</span></a>
+          </div>
+        </div>
+        <div class="col-sm-6 social text-md-right">
+          <a href="https://www.linkedin.com/in/bhavna-soni-962189140/" target="_blank"><span class="icofont-linkedin" title = "Bhavna Soni LinkedIn"></span></a>
+          <a href="https://github.com/bhavnas23" target="_blank"><span class="icofont-github" title="Bhavna Soni GitHub"></span></a>
+          <a href="https://randomvibesofalostsoul.blogspot.com/" target="_blank"><span class="icofont-blogger" title = "Bhavna Soni Blogger"></span></a>
+<!--          <a href="#"><span class="icofont-behance"></span></a>-->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
